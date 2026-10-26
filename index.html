@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Management System</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-icon">SMS</div>
+      <div>
+        <h1>Student Management System</h1>
+        <p>Manage student records in one place</p>
+      </div>
+    </div>
+    <span class="status-pill"><span class="status-dot"></span> Front-end Demo</span>
+  </header>
+
+  <main class="container">
+    <section class="welcome">
+      <div>
+        <p class="eyebrow">STUDENT ADMINISTRATION</p>
+        <h2>Dashboard</h2>
+        <p class="welcome-text">Register students, keep track of records, and find details quickly.</p>
+      </div>
+      <div class="welcome-mark" aria-hidden="true">✦</div>
+    </section>
+
+    <section class="stats" aria-label="Student statistics">
+      <article class="stat-card">
+        <div class="stat-icon blue">♙</div>
+        <div><p>Total Students</p><strong id="totalStudents">0</strong></div>
+      </article>
+      <article class="stat-card">
+        <div class="stat-icon green">✓</div>
+        <div><p>Records Added</p><strong id="recordsAdded">0</strong></div>
+      </article>
+      <article class="stat-card">
+        <div class="stat-icon purple">⌕</div>
+        <div><p>Search Results</p><strong id="searchResults">0</strong></div>
+      </article>
+    </section>
+
+    <div class="content-grid">
+      <section class="panel form-panel">
+        <div class="panel-heading">
+          <div>
+            <h3>Register a Student</h3>
+            <p>Add a new student to the records.</p>
+          </div>
+          <span class="heading-icon">＋</span>
+        </div>
+
+        <form id="studentForm">
+          <div class="field">
+            <label for="studentName">Full Name <span>*</span></label>
+            <input id="studentName" name="studentName" type="text" placeholder="e.g. Aditi Sharma" required maxlength="60" />
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="rollNumber">Roll Number <span>*</span></label>
+              <input id="rollNumber" name="rollNumber" type="text" placeholder="e.g. BCA024" required maxlength="20" />
+            </div>
+            <div class="field">
+              <label for="course">Course <span>*</span></label>
+              <select id="course" name="course" required>
+                <option value="">Select course</option>
+                <option>BCA</option>
+                <option>BBA</option>
+                <option>B.Tech</option>
+                <option>BA</option>
+                <option>B.Sc</option>
+                <option>MCA</option>
+                <option>MBA</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="email">Email Address <span>*</span></label>
+            <input id="email" name="email" type="email" placeholder="student@example.com" required maxlength="100" />
+          </div>
+
+          <div class="field">
+            <label for="year">Academic Year <span>*</span></label>
+            <select id="year" name="year" required>
+              <option value="">Select year</option>
+              <option>1st Year</option>
+              <option>2nd Year</option>
+              <option>3rd Year</option>
+              <option>4th Year</option>
+            </select>
+          </div>
+
+          <p id="formMessage" class="form-message" role="status" aria-live="polite"></p>
+          <button class="primary-button" type="submit">＋ Add Student</button>
+          <button class="secondary-button" type="reset">Clear Form</button>
+        </form>
+      </section>
+
+      <section class="panel records-panel">
+        <div class="panel-heading records-heading">
+          <div>
+            <h3>Student Records</h3>
+            <p>View and search registered students.</p>
+          </div>
+          <span class="record-count" id="recordCount">0 records</span>
+        </div>
+
+        <div class="search-box">
+          <span aria-hidden="true">⌕</span>
+          <input id="searchInput" type="search" placeholder="Search name or roll number..." aria-label="Search students by name or roll number" />
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>STUDENT</th>
+                <th>ROLL NO.</th>
+                <th>COURSE / YEAR</th>
+                <th>EMAIL</th>
+              </tr>
+            </thead>
+            <tbody id="studentTableBody">
+              <tr class="empty-row">
+                <td colspan="4">
+                  <div class="empty-state">
+                    <div class="empty-icon">♙</div>
+                    <strong>No students yet</strong>
+                    <p>Use the registration form to add your first student.</p>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="table-note">Demo note: records are saved in this browser on this device.</p>
+      </section>
+    </div>
+
+    <footer>
+      <span>Student Management System</span>
+      <span>Minor Project · HTML, CSS &amp; JavaScript</span>
+    </footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
